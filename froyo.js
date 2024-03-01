@@ -1,28 +1,27 @@
-//Prompt that asks for flavors
-const froyoFlavors = prompt("Enter a list of comma seperated froyo flavors.");
-// Split the flavors into an array of strings
+//Prompt that asks for flavors and already has them
+const froyoPrompt = prompt(
+  "Enter a list of comma seperated froyo flavors.",
+  "vanilla,vanilla,vanilla,strawberry,coffee,coffee"
+);
 
-const froyoArray = ["vanilla, vanilla, vanilla, strawberry, coffee, coffee"];
+// Split the prompt into an array of strings
+const flavors = froyoPrompt.split(",");
 
-// const numbers = [];
-// for (let i = 0; i < stringArray.length; i++) {
-//   const str = stringArray[i];
-//   const number = parseInt(str);
-//   numbers.push(number);
-// }
-
-function countFreq(array) {
+//Create a function
+function countFreq(flavors) {
   const froyoObject = {};
-
-  for (let i = 0; i < array.length; i++) {
-    if (froyoObject[array[i]] === undefined) {
-      froyoObject[array[i]] = 1;
+  //Loops through flavors
+  for (let i = 0; i < flavors.length; i++) {
+    //If the the flavor is counted once leave the same but if its counted again add +1
+    if (froyoObject[flavors[i]] === undefined) {
+      froyoObject[flavors[i]] = 1;
     } else {
-      froyoObject[array[i]] += 1;
+      froyoObject[flavors[i]] += 1;
     }
   }
-
+  //Logs it in console
   console.log(froyoObject);
 }
 
-countFreq(froyoArray);
+//Executes the function
+countFreq(flavors);
